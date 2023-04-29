@@ -37,7 +37,6 @@ slx=[]
 sly=[]
 s=0
 for _ in range(COUNT_POINT):
-    # print(m, "->", find_min_dist(m, list_point, list_without_repeate))
     m1 = find_min_dist(m, list_point)
     s+= m1[1]
     m = m1[0]
