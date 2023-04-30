@@ -37,6 +37,8 @@
     | 8     |   9,22    |  100%  |
     | 9     |   94,97   |  90%   |
 
-    Moving on is too slow!
+    - Moving on is too slow!
+
+    - After a small change in the code (removed the transformation of the tuple into a list) the code began to work on average 20-30 milliseconds faster
 
 

@@ -5,7 +5,7 @@ import itertools as it
 
 
 # count the point (the best is 9)
-COUNT_POINT = 9
+COUNT_POINT = 7
 # random number accuracy (number of decimal places)
 ICONIC_ACCURACY = 10
 
@@ -22,10 +22,8 @@ def create_dict_varios(ls:list):
         fixed_point = ls[j]
         for g in it.permutations(ls):
             s=0
-            g = list(g)
-            del g[g.index(fixed_point)]
-            g.insert(0, fixed_point)
-            g = tuple(g)
+            g = (g[:g.index(fixed_point)] + g[g.index(fixed_point)+1:])
+            g = (fixed_point, ) + g
             for i in range(len(g)-1):
                 s += find_dist(g[i], g[i+1])
             dict_varios[g] = (s, fixed_point)
