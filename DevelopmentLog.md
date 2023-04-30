@@ -41,4 +41,8 @@
 
     - After a small change in the code (removed the transformation of the tuple into a list) the code began to work on average 20-30 milliseconds faster
 
+- [x] 01.05.2023:
+
+    - added code optimization, namely reducing the number of useless devices by 1, which simplifies the counting process from ```n!``` to ```(n-1)!```
+
 

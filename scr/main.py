@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import itertools as it
 
 
-# count the point (the best is 9)
-COUNT_POINT = 7
+# count the point (the best is 10)
+COUNT_POINT = 3
 # random number accuracy (number of decimal places)
-ICONIC_ACCURACY = 10
+ICONIC_ACCURACY = 2
 
 
 def find_dist(cord1:tuple, cord2:tuple):
@@ -20,24 +20,24 @@ def create_dict_varios(ls:list):
     dict_varios = dict()
     for j in range(COUNT_POINT):
         fixed_point = ls[j]
-        for g in it.permutations(ls):
+        copy_ls = (ls[:ls.index(fixed_point)] + ls[ls.index(fixed_point)+1:])
+        for g in it.permutations(copy_ls):
             s=0
-            g = (g[:g.index(fixed_point)] + g[g.index(fixed_point)+1:])
-            g = (fixed_point, ) + g
+            g = (fixed_point, ) + g + (fixed_point, )
             for i in range(len(g)-1):
                 s += find_dist(g[i], g[i+1])
-            dict_varios[g] = (s, fixed_point)
+            dict_varios[g] = s
     
     return dict_varios
 
 
 def finally_variant(ls:list):
     new_varios = create_dict_varios(ls)
-    min_value = min(new_varios.values())[0]
+    min_value = min(new_varios.values())
 
     for key, value in new_varios.items():
-        if value[0] == min_value:
-            return list(key), value[0], value[1]
+        if value == min_value:
+            return list(key), value
         
 
 # create list with tuple of cords (random values)
@@ -46,16 +46,20 @@ list_point = [
 ]
 
 
-# <------------------ Build the Way ------------------>
 
-new_list = finally_variant(list_point)
-new_list[0].append(new_list[2])
+# <------------------ Build the Way ------------------>
+new_list=[[(0,0)]*10]
+
+result_function = finally_variant(list_point)
+if result_function is not None:
+    new_list = result_function
+
 
 len_way = new_list[1]
 x = [cord[0] for cord in new_list[0]]
 y = [cord[1] for cord in new_list[0]]
 
-print(len_way)
+print(f"LEN ALL WAY: {len_way}")
 
 plt.plot(x, y)
 plt.scatter(x, y)
