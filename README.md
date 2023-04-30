@@ -12,7 +12,18 @@ A repository for my solution of the traveling salesman problem by a programmatic
 
 Solving the traveling salesman problem is a task whose main goal is to solve the problem of optimizing movement in space. To solve this problem, the _Python_ programming language was taken as incredibly easy to understand. When solving this problem, it is possible to optimize the delivery of certain goods, optimize and accelerate movement in space and, accordingly, have the largest number of resources at the end of the journey.
 
-## **Exaple Code**
+## **Example Code and other**
+1. Сalculating the distance between two points:
+    ```python
+    def find_dist(cord1:tuple, cord2:tuple):
+        if cord1 is cord2:
+            return np.inf
+        return np.sqrt((cord1[0]-cord2[0])**2 + (cord1[1]-cord2[1])**2)
+    ```
+2. Example grafic:
+
+    ![graf1](/images/graf1.png)
+
 
 ## **Useful Links**
 
@@ -21,4 +32,17 @@ Solving the traveling salesman problem is a task whose main goal is to solve the
 
 ## **More Inforamation**
 
-###### 29.04.2023
+_The principle of operation_:
+The first element is taken from the array with the coordinates of the points. Next, a search of options begins with a search of all possible options.
+
+$$
+P = (n-1)!
+$$
+
+Where _**P**_ - is the number of possible options. And _**n**_ - is the number of points in the array.
+
+The point of start is a red point on grafics.
+
+<br>
+
+###### 29.04.2023 - the last change of README.md
