@@ -3,8 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import itertools as it
 
-# count the point (the best is 10)
-COUNT_POINT = 10
+
+# count the point (the best is 9)
+COUNT_POINT = 9
 # random number accuracy (number of decimal places)
 ICONIC_ACCURACY = 10
 

@@ -21,3 +21,22 @@
     - incorrect path finding (has the ability to go back to the previous point)
     - ~~lose the point (from 5 point after - 4)~~
 
+
+- [x] 30.04.2023:
+
+    *Tests have been carried out*:
+
+    | Coint Point | Time (sec) | Result (satisfaction with the option, %)   |
+    |-------|-----------|----------|
+    | 2     |   1,81    | 100%   |
+    | 3     |   1,65    | 100%   |
+    | 4     |   2,07    | 100%   |
+    | 5     |   2,18    |  100%  |
+    | 6     |   2,47    |  100%  |
+    | 7     |   2,77    |  99%   |
+    | 8     |   9,22    |  100%  |
+    | 9     |   94,97   |  90%   |
+
+    Moving on is too slow!
+
+
