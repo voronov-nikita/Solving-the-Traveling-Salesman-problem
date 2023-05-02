@@ -1,10 +1,10 @@
 import numpy as np
+import itertools as it
 
-def find_dist(cord1:tuple, cord2:tuple):
-    return np.sqrt((cord1[0]-cord2[0])**2 + (cord1[1]-cord2[1])**2)
+arr = np.array([(1, 2), (3, 4)])
 
+for g in it.permutations(arr):
+    for i in range(len(g)-1):
+        print(g[i][0], g[i+1][0])
 
-cord1=  (1, 1)
-cord2 = (-1, -1)
-
-print(find_dist(cord1, cord2))
+print(arr[1][0])

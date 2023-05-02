@@ -1,18 +1,22 @@
-from random import uniform
+from random import uniform, seed
 import numpy as np
 import matplotlib.pyplot as plt
 import itertools as it
 
 
 # count the point (the best is 10)
-COUNT_POINT = 3
+COUNT_POINT = 10
 # random number accuracy (number of decimal places)
 ICONIC_ACCURACY = 2
+# position points (cords)
+MIN_POSITION = -1
+MAX_POSITION = 1
+
+# created SEED to compare the efficiency of algorithms
+# seed(42)
 
 
 def find_dist(cord1:tuple, cord2:tuple):
-    if cord1 is cord2:
-        return np.inf
     return np.sqrt((cord1[0]-cord2[0])**2 + (cord1[1]-cord2[1])**2)
 
 
@@ -20,7 +24,8 @@ def create_dict_varios(ls:list):
     dict_varios = dict()
     for j in range(COUNT_POINT):
         fixed_point = ls[j]
-        copy_ls = (ls[:ls.index(fixed_point)] + ls[ls.index(fixed_point)+1:])
+        ind_fixed_point = ls.index(fixed_point)
+        copy_ls = (ls[:ind_fixed_point] + ls[ind_fixed_point+1:])
         for g in it.permutations(copy_ls):
             s=0
             g = (fixed_point, ) + g + (fixed_point, )
@@ -42,9 +47,8 @@ def finally_variant(ls:list):
 
 # create list with tuple of cords (random values)
 list_point = [
-    (np.round(uniform(-1, 1), ICONIC_ACCURACY), np.round(uniform(-1, 1), ICONIC_ACCURACY)) for _ in range(COUNT_POINT)
+    (np.round(uniform(MIN_POSITION, MAX_POSITION), ICONIC_ACCURACY), np.round(uniform(MIN_POSITION, MAX_POSITION), ICONIC_ACCURACY)) for _ in range(COUNT_POINT)
 ]
-
 
 
 # <------------------ Build the Way ------------------>
