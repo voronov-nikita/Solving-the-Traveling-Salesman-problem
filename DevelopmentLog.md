@@ -45,4 +45,23 @@
 
     - added code optimization, namely reducing the number of useless devices by 1, which simplifies the counting process from ```n!``` to ```(n-1)!```
 
+- [x] 03.05.2023:
+
+    - Maximum task completion speed!
+    - several complex functions have been removed, which ensures maximum efficiency of the algorithm
+    - numpy is no longer used!
+    - New tests have been carried out:
+    
+    | Coint Point | Time (sec) | Result (satisfaction with the option, %)   |
+    |-------|-----------|----------|
+    | 2     |   2,19    |  100%  |
+    | 3     |   1,68    |  100%  |
+    | 4     |   1,72    |  100%  |
+    | 5     |   1,75    |  100%  |
+    | 6     |   1,76    |  100%  |
+    | 7     |   1,79    |  100%  |
+    | 8     |   1,85    |  100%  |
+    | 9     |   2,41    |  100%  |
+    | 10    |   9,00    |  100%  |
+    | 11    |   82,81   |  100%  |
 
