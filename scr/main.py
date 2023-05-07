@@ -5,26 +5,26 @@ import time
 
 
 # count the point (the best is 11)
-COUNT_POINT = 10
+COUNT_POINT:int = 10
 # random number accuracy (number of decimal places)
-ICONIC_ACCURACY = 10
+ICONIC_ACCURACY:int = 10
 # position points (cords)
-MIN_POSITION = -1
-MAX_POSITION = 1
+MIN_POSITION:float = -1
+MAX_POSITION:float = 1
 
 # <--------- Additional parameters --------->
 RETURN_START_POINT:bool = True
-START_POINT = 0
+START_POINT:int = 0
 
 # created SEED to compare the efficiency of algorithms
 # seed(42)
 
 
-def find_dist(cord1:tuple, cord2:tuple):
+def find_dist(cord1:tuple, cord2:tuple) -> float:
     return ((cord1[0]-cord2[0])**2 + (cord1[1]-cord2[1])**2)**0.5
 
 
-def create_dict_varios(ls:list, start_point:int):
+def create_dict_varios(ls:list, start_point:int) -> dict:
     dict_varios = dict()
     fixed_point = ls[start_point]
     copy_ls = (ls[:start_point] + ls[start_point+1:])
@@ -46,12 +46,18 @@ def finally_variant(ls:list, start:int):
 
     for key, value in new_varios.items():
         if value == min_value:
-            return list(key), value
+            return (list(key), value)
         
 
 # create list with tuple of cords (random values)
 list_point = [
     (round(uniform(MIN_POSITION, MAX_POSITION), ICONIC_ACCURACY), round(uniform(MIN_POSITION, MAX_POSITION), ICONIC_ACCURACY)) for _ in range(COUNT_POINT)
+]
+# create grafwith tuple of cords
+graf_point = [
+    (-1, -1), (-1, 0), (-1, 1),
+    (0, -1), (0, 0), (0, 1),
+    (1, 0), (1, 1), (1, -1)
 ]
 
 
@@ -74,6 +80,7 @@ print(f"THE START POINT: {list_point[START_POINT]}")
 print(f"LEN ALL WAY: {len_way}")
 
 plt.plot(x, y)
+plt.grid(True)
 plt.scatter(x, y)
 plt.scatter(x[-1], y[-1], color="red")
 plt.show()
