@@ -80,7 +80,7 @@ print(f"THE START POINT: {list_point[START_POINT]}")
 print(f"LEN ALL WAY: {len_way}")
 
 plt.plot(x, y)
-plt.grid(True)
+# plt.grid(True)
 plt.scatter(x, y)
 plt.scatter(x[-1], y[-1], color="red")
 plt.show()
