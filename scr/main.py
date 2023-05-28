@@ -7,17 +7,17 @@ import time
 # count the point (the best is 11)
 COUNT_POINT:int = 10
 # random number accuracy (number of decimal places)
-ICONIC_ACCURACY:int = 12
+ICONIC_ACCURACY:int = 0
 # position points (cords)
 MIN_POSITION:float = -10
 MAX_POSITION:float = 10
 
 # <--------- Additional parameters --------->
 RETURN_START_POINT:bool = True
-START_POINT:int = 3
+START_POINT:int = 0
 
 # created SEED to compare the efficiency of algorithms
-# seed(42)
+seed(42)
 
 class FindMinWay():
 
@@ -55,6 +55,7 @@ class FindMinWay():
         for key, value in new_varios.items():
             if value == min_value:
                 return (list(key), value)
+        return ([], 0)
             
 
 
@@ -69,13 +70,11 @@ graf_point = [
 # <------------------ Build the Way ------------------>
 if __name__=="__main__":
     start_timer = time.time()
-    new_list=[[(0,0)]*10]
 
     minway = FindMinWay()
     list_point = minway.create_list_point(COUNT_POINT, ICONIC_ACCURACY, MIN_POSITION, MAX_POSITION)
     result_function = minway.finally_variant(list_point, START_POINT)
-    if result_function is not None:
-        new_list = result_function
+    new_list = result_function
 
     len_way = new_list[1]
     x = [cord[0] for cord in new_list[0]]

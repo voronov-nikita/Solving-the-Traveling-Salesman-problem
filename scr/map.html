@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_afd15f4d1de80cc5898ac74f55cd70ed {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_afd15f4d1de80cc5898ac74f55cd70ed" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_afd15f4d1de80cc5898ac74f55cd70ed = L.map(
+                "map_afd15f4d1de80cc5898ac74f55cd70ed",
+                {
+                    center: [3.0, -9.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5495e51166fdf3b54655fbb0bb2d86f7 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_afd15f4d1de80cc5898ac74f55cd70ed);
+        
+    
+            var marker_65ed2de1f156103bc2dbc4df2c39155a = L.marker(
+                [3.0, -9.0],
+                {}
+            ).addTo(map_afd15f4d1de80cc5898ac74f55cd70ed);
+        
+    
+        var popup_cfb8a11f8cfec54a03a3e9fd5d98ee55 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9a66dea8aed58052429ec524b0055d0c = $(`<div id="html_9a66dea8aed58052429ec524b0055d0c" style="width: 100.0%; height: 100.0%;">1</div>`)[0];
+                popup_cfb8a11f8cfec54a03a3e9fd5d98ee55.setContent(html_9a66dea8aed58052429ec524b0055d0c);
+            
+        
+
+        marker_65ed2de1f156103bc2dbc4df2c39155a.bindPopup(popup_cfb8a11f8cfec54a03a3e9fd5d98ee55)
+        ;
+
+        
+    
+    
+            var marker_a4cf9055bbcf7047d4d067b84a982ac7 = L.marker(
+                [-4.0, -6.0],
+                {}
+            ).addTo(map_afd15f4d1de80cc5898ac74f55cd70ed);
+        
+    
+        var popup_d147b23ae6e76fb2fc716b04e0a33332 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4ed5e49d33884ba1f987fe10f2295dc5 = $(`<div id="html_4ed5e49d33884ba1f987fe10f2295dc5" style="width: 100.0%; height: 100.0%;">1</div>`)[0];
+                popup_d147b23ae6e76fb2fc716b04e0a33332.setContent(html_4ed5e49d33884ba1f987fe10f2295dc5);
+            
+        
+
+        marker_a4cf9055bbcf7047d4d067b84a982ac7.bindPopup(popup_d147b23ae6e76fb2fc716b04e0a33332)
+        ;
+
+        
+    
+    
+            var marker_4847a1e530ba254d7c2b4daf7e6d2794 = L.marker(
+                [5.0, 4.0],
+                {}
+            ).addTo(map_afd15f4d1de80cc5898ac74f55cd70ed);
+        
+    
+        var popup_ce44337f9adbbbfb5c0a027d1f36e556 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7ed16f0d75a54ae8576fa318b2ea5340 = $(`<div id="html_7ed16f0d75a54ae8576fa318b2ea5340" style="width: 100.0%; height: 100.0%;">1</div>`)[0];
+                popup_ce44337f9adbbbfb5c0a027d1f36e556.setContent(html_7ed16f0d75a54ae8576fa318b2ea5340);
+            
+        
+
+        marker_4847a1e530ba254d7c2b4daf7e6d2794.bindPopup(popup_ce44337f9adbbbfb5c0a027d1f36e556)
+        ;
+
+        
+    
+    
+            var marker_7b7adfe7c816cbfa8f1987752c3d31d6 = L.marker(
+                [3.0, -9.0],
+                {}
+            ).addTo(map_afd15f4d1de80cc5898ac74f55cd70ed);
+        
+    
+        var popup_00e3ffd2b709da309efe793a51e79169 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_75882a8048bb6d018c6b2ac0d1309631 = $(`<div id="html_75882a8048bb6d018c6b2ac0d1309631" style="width: 100.0%; height: 100.0%;">1</div>`)[0];
+                popup_00e3ffd2b709da309efe793a51e79169.setContent(html_75882a8048bb6d018c6b2ac0d1309631);
+            
+        
+
+        marker_7b7adfe7c816cbfa8f1987752c3d31d6.bindPopup(popup_00e3ffd2b709da309efe793a51e79169)
+        ;
+
+        
+    
+</script>
+</html>
