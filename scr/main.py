@@ -17,9 +17,12 @@ RETURN_START_POINT:bool = True
 START_POINT:int = 0
 
 # created SEED to compare the efficiency of algorithms
-seed(42)
+# seed(42)
 
 class FindMinWay():
+
+    def __init__(self):
+        self.start_timer = time.time()
 
     def create_list_point(self, size_list:int, round_value:int, min_position:int, max_position:int):
         # create list with tuple of cords (random values)
@@ -56,6 +59,26 @@ class FindMinWay():
             if value == min_value:
                 return (list(key), value)
         return ([], 0)
+    
+    def show_way(self, data_list:tuple, start_point:int):
+
+        len_way = data_list[1]
+        x = [cord[0] for cord in data_list[0]]
+        y = [cord[1] for cord in data_list[0]]
+
+        end_timer = time.time()
+
+        print("="*130)
+        print(f"TIME: {round(end_timer-self.start_timer, 2)} sec")
+        # print(f"THE START POINT: {list_point[start_point]}")
+        print(f"LEN ALL WAY: {len_way}")
+        print("="*130)
+
+        plt.plot(x, y)
+        # plt.grid(True)
+        plt.scatter(x, y)
+        plt.scatter(x[-1], y[-1], color="red")
+        plt.show()
             
 
 
@@ -69,27 +92,11 @@ graf_point = [
 
 # <------------------ Build the Way ------------------>
 if __name__=="__main__":
-    start_timer = time.time()
 
     minway = FindMinWay()
     list_point = minway.create_list_point(COUNT_POINT, ICONIC_ACCURACY, MIN_POSITION, MAX_POSITION)
     result_function = minway.finally_variant(list_point, START_POINT)
     new_list = result_function
+    minway.show_way(new_list, START_POINT)
 
-    len_way = new_list[1]
-    x = [cord[0] for cord in new_list[0]]
-    y = [cord[1] for cord in new_list[0]]
-
-    end_timer = time.time()
-
-    print("="*130)
-    print(f"TIME: {round(end_timer-start_timer, 2)} sec")
-    print(f"THE START POINT: {list_point[START_POINT]}")
-    print(f"LEN ALL WAY: {len_way}")
-    print("="*130)
-
-    plt.plot(x, y)
-    # plt.grid(True)
-    plt.scatter(x, y)
-    plt.scatter(x[-1], y[-1], color="red")
-    plt.show()
+    
