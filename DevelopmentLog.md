@@ -65,3 +65,12 @@
     | 10    |   9,00    |  100%  |
     | 11    |   82,81   |  100%  |
 
+
+- [x] 18.05.2023:
+    - Create [Example Turtle Solving](/scr/turtle-example.py).
+    - Added the ability to see the solution using the example of a turtle from Python
+
+
+- [x] 01.06.2023:
+    - Create Desktop Application with Beautiful Inteface. 
+

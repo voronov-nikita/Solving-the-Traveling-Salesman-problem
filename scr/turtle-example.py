@@ -34,15 +34,16 @@ def draw_point(list_point:list, start_point:int):
         point_draw.dot()
         
 # <<<<<<<<<<<<<<<< START >>>>>>>>>>>>>>>>>
-list_points = find_min_way.create_list_point(8, 0, -200, 200)
+def draw_all_way():
+    list_points = find_min_way.create_list_point(8, 0, -200, 200)
 
-draw_point(list_points, 0)
-try:
-    for g in find_min_way.finally_variant(list_points, 0)[0]:
-        k.goto(g[0], g[1])
-except:
-    pass
+    draw_point(list_points, 0)
+    try:
+        for g in find_min_way.finally_variant(list_points, 0, True)[0]:
+            k.goto(g[0], g[1])
+    except:
+        pass
 
+    turtle.done()
 
-
-turtle.done()
+draw_all_way()

@@ -12,6 +12,8 @@ A repository for my solution of the traveling salesman problem by a programmatic
 
 Solving the traveling salesman problem is a task whose main goal is to solve the problem of optimizing movement in space. To solve this problem, the _Python_ programming language was taken as incredibly easy to understand. When solving this problem, it is possible to optimize the delivery of certain goods, optimize and accelerate movement in space and, accordingly, have the largest number of resources at the end of the journey.
 
+Now, for the convenience of simple use, a _Python desktop application script_ has appeared. When the application starts, a window will appear with the data that the user must enter manually. After that, you need to press the **START** button and wait a little. After identifying the shortest route, two new windows will open. _The first window_ contains information about the code execution time and the total route length in conventional units. _The second window_ is designed to display the route itself on the _graph_.
+
 ## **Example Code and other**
 1. Сalculating the distance between two points:
     ```python
@@ -47,6 +49,12 @@ Solving the traveling salesman problem is a task whose main goal is to solve the
 
     This is a graph consisting of 10 points, optimization is maximum. The entire range changes from -1 to 1.The range changes in the code`s header.
 
+4. Example Application:
+
+![app](/images/app1.png)
+
+This is an example of what the app looks like. It is made on the PyQt5 framework using CSS styles.
+
 
 ## **Useful Links**
 
@@ -57,7 +65,7 @@ Solving the traveling salesman problem is a task whose main goal is to solve the
 ## **More Inforamation**
 
 _The principle of operation_:
-The first element is taken from the array with the coordinates of the points. Next, a search of options begins with a search of all possible options.
+The first element is taken from the array with the coordinates of the points. Next, a search of options begins with a search of all possible options. 
 
 $$
 P = (n-1)!

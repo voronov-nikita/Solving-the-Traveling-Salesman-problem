@@ -23,6 +23,7 @@ class FindMinWay():
 
     def __init__(self):
         self.start_timer = time.time()
+        self.execution_time = None
 
     def create_list_point(self, size_list:int, round_value:int, min_position:int, max_position:int):
         # create list with tuple of cords (random values)
@@ -35,12 +36,12 @@ class FindMinWay():
         return ((cord1[0]-cord2[0])**2 + (cord1[1]-cord2[1])**2)**0.5
 
 
-    def create_dict_varios(self, ls:list, start_point:int) -> dict:
+    def create_dict_varios(self, ls:list, start_point:int, return_start_point:bool) -> dict:
         dict_varios = dict()
         fixed_point = ls[start_point]
         copy_ls = (ls[:start_point] + ls[start_point+1:])
         for g in permutations(copy_ls):
-            if RETURN_START_POINT:
+            if return_start_point:
                 g = (fixed_point, ) + g + (fixed_point, )
             else:
                 g = (fixed_point, ) + g
@@ -51,14 +52,19 @@ class FindMinWay():
         return dict_varios
 
 
-    def finally_variant(self, ls:list, start:int):
-        new_varios = self.create_dict_varios(ls, start)
+    def finally_variant(self, ls:list, start:int, return_start_point:bool):
+        new_varios = self.create_dict_varios(ls, start, return_start_point)
         min_value = min(new_varios.values())
 
         for key, value in new_varios.items():
             if value == min_value:
                 return (list(key), value)
         return ([], 0)
+    
+    def get_execution_time(self):
+        if self.execution_time is not None:
+            return self.execution_time
+        return 0
     
     def show_way(self, data_list:tuple, start_point:int):
 
@@ -68,8 +74,10 @@ class FindMinWay():
 
         end_timer = time.time()
 
+        self.execution_time = end_timer-self.start_timer
+
         print("="*130)
-        print(f"TIME: {round(end_timer-self.start_timer, 2)} sec")
+        print(f"TIME: {round(self.execution_time, 2)} sec")
         # print(f"THE START POINT: {list_point[start_point]}")
         print(f"LEN ALL WAY: {len_way}")
         print("="*130)
@@ -79,6 +87,8 @@ class FindMinWay():
         plt.scatter(x, y)
         plt.scatter(x[-1], y[-1], color="red")
         plt.show()
+
+
             
 
 
@@ -95,7 +105,7 @@ if __name__=="__main__":
 
     minway = FindMinWay()
     list_point = minway.create_list_point(COUNT_POINT, ICONIC_ACCURACY, MIN_POSITION, MAX_POSITION)
-    result_function = minway.finally_variant(list_point, START_POINT)
+    result_function = minway.finally_variant(list_point, START_POINT, RETURN_START_POINT)
     new_list = result_function
     minway.show_way(new_list, START_POINT)
 
