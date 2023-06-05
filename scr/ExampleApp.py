@@ -1,11 +1,11 @@
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QLineEdit, QApplication, QDialog,\
 QLabel
 from PyQt5.QtGui import QIcon
-from threading import Thread
 import pyautogui
 import sys
 
 from main import FindMinWay
+
 
 class GetData(QDialog):
     def __init__(self, time, len_way):
@@ -188,7 +188,7 @@ class MainApp(QMainWindow):
 
             minway = FindMinWay()
             list_point = minway.create_list_point(count_point, round_value, min_position, max_position)
-            result_function = minway.finally_variant(list_point, start_point)
+            result_function = minway.finally_variant(list_point, start_point, return_start_point=True)
             new_list = result_function
             minway.show_way(new_list, start_point=start_point)
 
