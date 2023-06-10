@@ -5,7 +5,7 @@ import pyautogui
 import sys
 
 from main import FindMinWay
-
+# from turtle_example import Run
 
 class GetData(QDialog):
     def __init__(self, time, len_way):
@@ -86,6 +86,8 @@ class MainApp(QMainWindow):
         self.precent_height_label = 0.1
         self.precent_height_button = 0.25
 
+        self.mode = "Matplotlib"
+
         self.InitGui()
 
     def InitGui(self):
@@ -118,6 +120,7 @@ class MainApp(QMainWindow):
             background: rgb(40, 40, 40);
             color: rgb(0, 255, 175);
             border: 1px solid rgb(0, 100, 20);
+            font-size: 18px;
         """)
 
         self.line_round_point = QLineEdit(self)
@@ -128,37 +131,47 @@ class MainApp(QMainWindow):
             background: rgb(40, 40, 40);
             color: rgb(0, 255, 175);
             border: 1px solid rgb(0, 100, 20);
+            font-size: 18px;
         """)
 
         self.line_min_position = QLineEdit(self)
         self.line_min_position.setPlaceholderText("The Min Position")
-        self.line_min_position.resize(int(self.window_size[0]), int(self.window_size[1]*self.precent_height))
+        self.line_min_position.resize(int(self.window_size[0])//2, int(self.window_size[1]*self.precent_height))
         self.line_min_position.move(0, int(self.window_size[1]*self.precent_height) * 3)
         self.line_min_position.setStyleSheet("""
             background: rgb(40, 40, 40);
             color: rgb(0, 255, 175);
             border: 1px solid rgb(0, 100, 20);
+            font-size: 18px;
         """)
 
         self.line_max_position = QLineEdit(self)
         self.line_max_position.setPlaceholderText("The Max Position")
-        self.line_max_position.resize(int(self.window_size[0]), int(self.window_size[1]*self.precent_height))
-        self.line_max_position.move(0, int(self.window_size[1]*self.precent_height) * 4)
+        self.line_max_position.resize(int(self.window_size[0])//2, int(self.window_size[1]*self.precent_height))
+        self.line_max_position.move(int(self.window_size[0])//2, int(self.window_size[1]*self.precent_height) * 3)
         self.line_max_position.setStyleSheet("""
             background: rgb(40, 40, 40);
             color: rgb(0, 255, 175);
             border: 1px solid rgb(0, 100, 20);
+            font-size: 18px;
         """)
 
         self.line_start_point = QLineEdit(self)
         self.line_start_point.setPlaceholderText("The index Start Point")
         self.line_start_point.resize(int(self.window_size[0]), int(self.window_size[1]*self.precent_height))
-        self.line_start_point.move(0, int(self.window_size[1]*self.precent_height) * 5)
+        self.line_start_point.move(0, int(self.window_size[1]*self.precent_height) * 4)
         self.line_start_point.setStyleSheet("""
             background: rgb(40, 40, 40);
             color: rgb(0, 255, 175);
             border: 1px solid rgb(0, 100, 20);
+            font-size: 18px;
         """)
+
+        self.button_choice_mode = QPushButton(self)
+        self.button_choice_mode.setText("Matplotlib")
+        self.button_choice_mode.resize(int(self.window_size[0]), int(self.window_size[1]*self.precent_height))
+        self.button_choice_mode.move(0, int(self.window_size[1]*self.precent_height) * 5)
+        self.button_choice_mode.clicked.connect(self.change_mode_view)
 
 
         self.button_start = QPushButton(self)
@@ -170,13 +183,22 @@ class MainApp(QMainWindow):
         background: rgb(20, 20, 20);
         color: rgb(52, 189, 176);
         border: 1px solid rgb(0, 200, 120);
-        font-weight: bold;
+
+        font-size: 36px;
         """)
 
 
     def open_data_window(self, timer, lenway):
         data_window = GetData(timer, lenway)
         data_window.exec_()
+
+    def change_mode_view(self):
+        if self.mode == "Turtle":
+            self.mode = "Matplotlib"
+        else:
+            self.mode = "Turtle"
+
+        self.button_choice_mode.setText(self.mode)
 
     def start_calculate(self):
         try:
@@ -186,13 +208,18 @@ class MainApp(QMainWindow):
             max_position = int(self.line_max_position.text())
             start_point = int(self.line_start_point.text())
 
-            minway = FindMinWay()
-            list_point = minway.create_list_point(count_point, round_value, min_position, max_position)
-            result_function = minway.finally_variant(list_point, start_point, return_start_point=True)
-            new_list = result_function
-            minway.show_way(new_list, start_point=start_point)
+            if self.mode == "Turtle":
+                # run_turtle = Run()
+                # run_turtle.draw_all_way(count_point, round_value, min_position, max_position, start_point)
+                import turtle_example
+            elif self.mode == "Matplotlib": 
+                minway = FindMinWay()
+                list_point = minway.create_list_point(count_point, round_value, min_position, max_position)
+                result_function = minway.finally_variant(list_point, start_point, return_start_point=True)
+                new_list = result_function
+                minway.show_way(new_list, start_point=start_point)
 
-            self.open_data_window(timer=minway.get_execution_time(), lenway=new_list[1])
+                self.open_data_window(timer=minway.get_execution_time(), lenway=new_list[1])
 
         except ValueError:
             dialog = ErrorValueDialog()
