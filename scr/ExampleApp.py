@@ -5,7 +5,7 @@ import pyautogui
 import sys
 
 from main import FindMinWay
-# from turtle_example import Run
+from turtle_example import Run
 
 class GetData(QDialog):
     def __init__(self, time, len_way):
@@ -172,6 +172,12 @@ class MainApp(QMainWindow):
         self.button_choice_mode.resize(int(self.window_size[0]), int(self.window_size[1]*self.precent_height))
         self.button_choice_mode.move(0, int(self.window_size[1]*self.precent_height) * 5)
         self.button_choice_mode.clicked.connect(self.change_mode_view)
+        self.button_choice_mode.setStyleSheet("""
+            background: rgb(40, 40, 40);
+            color: rgb(20, 148, 108);
+            border: 1px solid rgb(0, 100, 20);
+            font-size: 18px;
+        """)
 
 
         self.button_start = QPushButton(self)

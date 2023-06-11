@@ -18,6 +18,7 @@ class Run():
 
 
     def draw_point(self, list_point:list, start_point:int):
+        turtle.clearscreen()
         # point_draw.penup()
         for elem in range(len(list_point)):
             self.point_draw.pendown()
@@ -41,7 +42,7 @@ class Run():
                                                     min_position, 
                                                     max_position,)
 
-        self.draw_point(list_points, 0)
+        self.draw_point(list_points, start_point)
         # try:
         for g in find_min_way.finally_variant(list_points, start_point, return_back)[0]:
             self.k.goto(g[0], g[1])
@@ -50,5 +51,7 @@ class Run():
 
         turtle.done()
 
-run = Run()
-run.draw_all_way(6, 6, -100, 100, 0)
+        
+if __name__=="__main__":
+    run = Run()
+    run.draw_all_way(6, 6, -100, 100, 0)
