@@ -55,6 +55,10 @@ Now, for the convenience of simple use, a _Python desktop application script_ ha
 
 This is an example of what the app looks like. It is made on the PyQt5 framework using CSS styles.
 
+5. Example with turtle:
+
+![turtle](/images/turtle-examle.png)
+
 
 ## **Useful Links**
 
@@ -79,4 +83,4 @@ You can read the [development log](/DevelopmentLog.md) posted in the same reposi
 
 <br></n>
 
-###### 14.06.2023 - the last change of README.md
+###### 15.06.2023 - the last change of README.md
