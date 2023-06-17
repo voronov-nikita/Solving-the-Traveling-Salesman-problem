@@ -83,4 +83,4 @@ You can read the [development log](/DevelopmentLog.md) posted in the same reposi
 
 <br></n>
 
-###### 15.06.2023 - the last change of README.md
+###### 17.06.2023 - the last change of README.md
