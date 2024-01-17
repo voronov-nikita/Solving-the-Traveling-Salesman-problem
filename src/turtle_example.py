@@ -1,4 +1,4 @@
-import turtle 
+import turtle
 from time import sleep
 
 from main import FindMinWay
@@ -6,6 +6,7 @@ from main import FindMinWay
 find_min_way = FindMinWay()
 
 class Run():
+    
     point_draw = turtle.Turtle(visible=False)
     point_draw.pencolor("blue")
     point_draw.pensize(4)

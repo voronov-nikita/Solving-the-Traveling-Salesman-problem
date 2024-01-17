@@ -1,11 +1,11 @@
-from random import uniform, seed
+from random import uniform
 import matplotlib.pyplot as plt
 from itertools import permutations
 import time
 
 
 # count the point (the best is 11)
-COUNT_POINT:int = 10
+COUNT_POINT:int = 9
 # random number accuracy (number of decimal places)
 ICONIC_ACCURACY:int = 0
 # position points (cords)
@@ -74,7 +74,7 @@ class FindMinWay():
 
         end_timer = time.time()
 
-        self.execution_time = end_timer-self.start_timer
+        self.execution_time = end_timer - self.start_timer
 
         print("="*130)
         print(f"TIME: {round(self.execution_time, 2)} sec")
